@@ -56,6 +56,4 @@ Acknowledgments
 Thanks to the developers who contributed to this project.
 Inspiration for creating an efficient employee review system.
 =======
-# employee-review-system
-Create an employee review system 
->>>>>>> 353732d7586b3c1eca912196414a940085a7d9ba
+
