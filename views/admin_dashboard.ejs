@@ -1,0 +1,89 @@
+<link rel="stylesheet" href="/css/admin_dashboard.css">
+
+<body>
+    <main>
+        <section>
+            <form action="/admin/request-review" method="GET" >
+                <button class="request-review-btn">Ask For Review</button>
+            </form>
+            <div id="user-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Admin</th>
+                        
+                            <th>Actions</th>
+                            <th>Delete User</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for (let user of all_users) { %>
+                            <tr>
+                                <td><%= user.name %></td>
+                                <td>
+                                    <% if (user.passcode !== 'YOUAREADMIN') { %>
+                                        False
+                                    <% } else { %>
+                                        True
+                                    <% } %>
+                                </td> 
+                                                           
+                                <td>
+                                    <% if (user.passcode !== 'YOUAREADMIN') { %>
+                                        <form action="/admin/user-to-admin/<%= user.id %>" method="POST">
+                                            <button class="btn">MAKE ADMIN</button>
+                                        </form>
+                                    <% } else { %>
+                                        <% for (admin of all_admin) { %>
+                                            <% if (admin.email === user.email) { %>
+                                                <a href="/admin/destroy-admin/<%= admin.id %>">
+                                                    <button class="btn">Remove Admin</button>
+                                                </a>
+                                            <% } %>
+                                        <% } %>
+                                    <% } %>
+                                    
+                                </td>
+                                <td>
+                                    <a href="/admin/destroy-user/<%= user.id %>"><button class="btn">Delete</button></a>
+                                </td>
+                            </tr>
+                        <% } %>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        
+    </main>
+</body>
+        
+        
+
+
+        <!-- <ul class="user-container">
+            <% for (let user of all_users) { %>
+                    <li>
+                        <p><%= user.name %></p>
+                        <% if (user.passcode !== 'YOUAREADMIN') { %>
+                            <p>Admin  : False</p>
+                            <form action="/admin/user-to-admin/<%= user.id %>" method="POST">
+                                <button class="btn">MAKE ADMINt</button>
+                            </form>
+                        <%}else{%>
+                            <p>Admin  : True</p>
+                            <% for(admin of all_admin){%>
+                                <% if(admin.email === user.email){%>
+                                <a href="/admin/destroy-admin/<%= admin.id %>"><button class="btn">Remove Admin</button></a>
+                                <%}%>
+                            <%}%>
+                         <%}%>   
+                        <form action="/user/profile/<%= user.id %>" method="GET">
+                            <button class="btn">Visit</button>
+                        </form>
+                        
+                        <a href="/admin/destroy-user/<%= user.id %>"><button class="btn">Delete</button></a>
+                    </li>
+            <% } %>
+        </ul> -->
+  

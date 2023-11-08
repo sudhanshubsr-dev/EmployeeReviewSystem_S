@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="/css/review.css">
+
+<main>
+    <section>
+        <main>
+            <section>
+                <% if (locals.user) { %>
+                    <h1>Review Page</h1>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rating</th>
+                                <th>Feedback</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% for (review of all_reviews) { %>
+                                <tr>
+                                    <% if(review.status === 'Pending'){%>
+                                        <td>Pending</td>
+                                        <td>Pending</td> 
+                                    <%}else if(review.status === 'Done'){%>
+                                        <td><%= review.rating %></td>
+                                        <td><%= review.feedback %></td>
+                                    <%}%>
+                                </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                <% } %>
+            </section>
+        </main>
+    </section>
+</main>
+        
+        
+        <!-- <% if(locals.user){ %>
+            <h1>Review Page</h1>
+            <ul>
+                <% for(review of all_reviews){%>
+                    <li>
+                        <p>RATING : <%= review.rating%></p>
+                        <p>FEEDBACK : <%= review.feedback%></p>
+                    </li>    
+                <%}%>
+            </ul>
+        <% } %> -->
+   

@@ -1,0 +1,10 @@
+/* :root{
+    --header-background-color: deepskyblue;
+    --header-font-color : #fff;
+}
+
+footer {
+    height: auto; 
+    width: 100%; 
+    background-color: var(--header-background-color);
+} */

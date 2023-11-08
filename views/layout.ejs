@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
+    <link rel="stylesheet" type="text/css" href="/css/header.css">
+    <link rel="stylesheet" type="text/css" href="/css/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+    <script src="https://kit.fontawesome.com/1013d8b8e8.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+    <%- style %>
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include("_header") %>
+    <%- body %>
+    <%- include("_footer") %>
+
+    <script src="/js/layout.js"></script>
+    <%- script %>
+    <script>
+        <% if(flash.success && flash.success.length>0){%>
+            new Noty({
+                theme : 'nest',
+                text : '<%= flash.success %>',
+                type : 'success',
+                layout : 'topCenter',
+                timeout : 1500            
+            }).show()
+        <%}%> 
+        <% if(flash.error && flash.error.length>0){%>
+            new Noty({
+                theme : 'nest',
+                text : '<%= flash.error %>',
+                type : 'error',
+                layout : 'topCenter',
+                timeout : 1500            
+            }).show()
+        <%}%> 
+    </script>
+</body>
+</html>

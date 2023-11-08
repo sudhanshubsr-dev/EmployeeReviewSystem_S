@@ -1,0 +1,37 @@
+:root{
+    --header-background-color: deepskyblue;
+    --header-font-color : #fff;
+}
+
+nav{
+    height: 10vh;
+    width: 100%;
+    background-color: var(--header-background-color) ;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+ul#header-container{
+    display: flex;
+    list-style: none;
+    margin : 1rem;
+}
+.logo{
+    margin : 1rem;
+    font-family: sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color : var(--header-font-color);
+}
+ul#header-container li{
+    margin-left : 2rem;
+}
+ul#header-container li a{
+    text-decoration: none;
+    font-family: sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color : var(--header-font-color)
+}
+
+

@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/review_form.css">
+<main>
+    <section>
+        <h2>Review Employee: <%= employeeToReview.name %></h2>
+
+        <% if(!reviewSubmitted){%>
+            <form action="/user/review/create" method="POST" id="review-form">
+            
+                <input type="hidden" name="reviewer" value="<%= reviewer.id%>">
+                <input type="hidden" name="employeeToReview" value="<%= employeeToReview.id%>">
+                <label for="rating">Rating:</label>
+                <input type="number" name="rating" required>
+    
+                <label for="feedback">Feedback:</label>
+                <textarea name="feedback" required></textarea>
+    
+                <button type="submit" class="btn">Submit Review</button>
+            </form>
+        <%}%>
+    
+    
+    </section>
+    
+</main>

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/css/profile.css">
+
+<main>
+    <section>
+        <% if (locals.admin && locals.admin.user) { %>
+            <div class="profile-container">
+                <div class="employee-details">
+                    <h1 class="user-name">User Profile: <%= admin.user.name %></h1>
+                    <h1 class="user-email">Email: <%= admin.user.email %></h1>
+                    <h1 class="is-admin">isAdmin: True</h1>
+                    <h1 class="user-address">Address: <%= admin.user.address %></h1>
+                    <h1 class="user-mobile">Phone/Mobile: <%= admin.user.mobile %></h1>
+                    <h1 class="user-bloodGroup">Blood Group: <%= admin.user.bloodGroup %></h1>
+                    <h1 class="user-designation">Designation: <%= admin.user.designation %></h1>
+                    <h1 class="user-department">Department: <%= admin.user.department %></h1>
+                </div>
+                <form action="/admin/update_profile_admin/<%= admin.user._id %>" method="GET" >
+                    <button class="request-update-btn btn">Edit</button>
+                </form>
+            </div>
+            
+        <% } else if (locals.user) { %>
+            <div class="profile-container">
+                <div class="employee-details">
+                    <h1 class="user-name">User Profile: <%= user.name %></h1>
+                    <h1 class="user-email">Email: <%= user.email %></h1>
+                    <% if (user.passcode !== 'YOUAREADMIN') { %>
+                        <h1 class="is-admin">isAdmin: False</h1>
+                    <% }else{%>
+                        <h1 class="is-admin">isAdmin: True</h1>
+                    <%} %>
+                    <h1 class="user-address">Address: <%= user.address %></h1>
+                    <h1 class="user-mobile">Phone/Mobile: <%= user.mobile %></h1>
+                    <h1 class="user-bloodGroup">Blood Group: <%= user.bloodGroup %></h1>
+                    <h1 class="user-designation">Designation: <%= user.designation %></h1>
+                    <h1 class="user-department">Department: <%= user.department %></h1>
+                </div>
+                <form action="/user/update_profile/<%= user._id %>" method="GET" id="edit" >
+                    <button class="request-update-btn">Edit</button>
+                </form>
+            </div>
+            <div class="review-form">
+                <% if (employeeToReview) { %>
+                    <%- include("review_form", { employeeToReview: employeeToReview }) %>
+                <% } %>
+            </div>
+
+            
+        <% } %>
+    </section>
+</main>
+

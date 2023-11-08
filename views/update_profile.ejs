@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/css/update_profile.css">
+<main>
+    <section>
+        <% if (locals.admin && locals.admin.user) { %>
+            <h1 class="user-name">User Profile: <%= admin.user.name %></h1>
+            <h1 class="user-email">Email: <%= admin.user.email %></h1>
+            <h1 class="is-admin">isAdmin: True</h1>
+            <form action="/admin/create_update_admin/<%= admin.user.id%>" method="POST">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" value="<%= admin.user.address %>">
+
+                <label for="mobile">Phone/Mobile:</label>
+                <input type="text" id="mobile" name="mobile" value="<%= admin.user.mobile %>">
+
+                <label for="bloodGroup">Blood Group:</label>
+                <input type="text" id="bloodGroup" name="bloodGroup" value="<%= admin.user.bloodGroup %>">
+
+                <label for="designation">Designation:</label>
+                <input type="text" id="designation" name="designation" value="<%= admin.user.designation %>">
+
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" value="<%= admin.user.department %>">
+
+                <button class="request-update-btn" type="submit">Update</button>
+            </form>
+            <% } else if (locals.user) { %>
+                <h1 class="user-name">User Profile: <%= user.name %></h1>
+                <h1 class="user-email">Email: <%= user.email %></h1>
+    
+                <% if (user.passcode !== 'YOUAREADMIN') { %>
+                    <h1 class="is-admin">isAdmin: False</h1>
+                <% } else { %>
+                    <h1 class="is-admin">isAdmin: True</h1>
+                <% } %>
+    
+                <form action="/user/create_update/<%= user.id%>" method="POST">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="<%= user.address %>">
+    
+                    <label for="mobile">Phone/Mobile:</label>
+                    <input type="text" id="mobile" name="mobile" value="<%= user.mobile %>">
+    
+                    <label for="bloodGroup">Blood Group:</label>
+                    <input type="text" id="bloodGroup" name="bloodGroup" value="<%= user.bloodGroup %>">
+    
+                    <label for="designation">Designation:</label>
+                    <input type="text" id="designation" name="designation" value="<%= user.designation %>">
+    
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" value="<%= user.department %>">
+    
+                    <button class="request-update-btn" type="submit">Update</button>
+                </form>
+            <% } %>
+    </section>
+</main>

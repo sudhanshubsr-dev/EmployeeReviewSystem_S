@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/ask_review.css">
+
+<main>
+    <h1>Review Employees</h1>
+    <form action="/admin/review" method="POST">
+        <label for="reviewer">Select Reviewer:</label>
+        <select name="reviewer">
+            <% allEmployees.forEach(employee => { %>
+                <option value="<%= employee._id %>"><%= employee.name %></option>
+            <% }); %>
+        </select>
+        <label for="employeeToReview">Select Employee to Review:</label>
+        <select name="employeeToReview">
+            <% allEmployees.forEach(employee => { %>
+                <option value="<%= employee._id %>"><%= employee.name %></option>
+            <% }); %>
+        </select>
+        <button type="submit">Submit Review Request</button>
+    </form>
+</main>
