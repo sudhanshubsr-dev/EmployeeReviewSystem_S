@@ -1,37 +1,36 @@
 <nav>
-    <p class="logo">ERS</p>
-    <ul id="header-container">
-        <% if (locals.admin && locals.admin.user) { %>
-            <li>
-                <a href="/admin/home">Home</a>
-            </li>
-            <li>
-                <a href="/admin/dashboard">Dashboard</a>
-            </li>
-            <li>
-                <a href="/admin/profile/<%= admin.user.id%>"><%= admin.user.name %></a>
-            </li>
-            <li>
-                <a href="/admin/sign-out">Sign Out</a>
-            </li>
-        <%}else if(locals.user){%>
-            <li>
-                <a href="/user/home">Home</a>
-            </li>
-            <li>
-                <a href="/user/profile/<%= user.id%>"><%= user.name %></a>
-            </li>
-            <li>
-                <a href="/user/review/<%= user.id%>">My Reviews</a>
-            </li>
-            <li>
-                <a href="/user/sign-out">Sign Out</a>
-            </li>
-        <%}else{%>
-            <li><a href="/admin/sign-in">Admin Sign-in</a></li>
-            <li><a href="/user/sign-in">User Sign-in</a></li>  
-            <li><a href="/">Back</a></li>    
-        <%}%>
-    </ul>
-    
+  <p class="logo">ERS</p>
+  <ul id="header-container">
+    <% if (locals.admin && locals.admin.user) { %>
+    <li>
+      <a href="/admin/home">Home</a>
+    </li>
+    <li>
+      <a href="/admin/dashboard">Dashboard</a>
+    </li>
+    <li>
+      <a href="/admin/profile/<%= admin.user.id %>"><%= admin.user.name %></a>
+    </li>
+    <li>
+      <a href="/admin/sign-out">Sign Out</a>
+    </li>
+    <%} else if(locals.user){%>
+    <li>
+      <a href="/user/home">Home</a>
+    </li>
+    <li>
+      <a href="/user/profile/<%= user.id %>"><%= user.name %></a>
+    </li>
+    <li>
+      <a href="/user/review/<%= user.id %>">My Reviews</a>
+    </li>
+    <li>
+      <a href="/user/sign-out">Sign Out</a>
+    </li>
+    <%} else{%>
+    <li><a href="/admin/sign-in">Admin Sign-in</a></li>
+    <li><a href="/user/sign-in">User Sign-in</a></li>
+    <li><a href="/">Back</a></li>
+    <%}%>
+  </ul>
 </nav>

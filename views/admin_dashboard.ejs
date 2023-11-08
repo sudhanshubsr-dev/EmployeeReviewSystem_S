@@ -2,8 +2,8 @@
 
 <body>
     <main>
-        <section>
-            <form action="/admin/request-review" method="GET" >
+        <section class="dashboard-section">
+            <form action="/admin/request-review" method="GET">
                 <button class="request-review-btn">Ask For Review</button>
             </form>
             <div id="user-table">
@@ -12,7 +12,6 @@
                         <tr>
                             <th>Name</th>
                             <th>Admin</th>
-                        
                             <th>Actions</th>
                             <th>Delete User</th>
                         </tr>
@@ -27,26 +26,26 @@
                                     <% } else { %>
                                         True
                                     <% } %>
-                                </td> 
-                                                           
+                                </td>
                                 <td>
                                     <% if (user.passcode !== 'YOUAREADMIN') { %>
                                         <form action="/admin/user-to-admin/<%= user.id %>" method="POST">
-                                            <button class="btn">MAKE ADMIN</button>
+                                            <button class="action-btn make-admin-btn">Make Admin</button>
                                         </form>
                                     <% } else { %>
                                         <% for (admin of all_admin) { %>
                                             <% if (admin.email === user.email) { %>
                                                 <a href="/admin/destroy-admin/<%= admin.id %>">
-                                                    <button class="btn">Remove Admin</button>
+                                                    <button class="action-btn remove-admin-btn">Remove Admin</button>
                                                 </a>
                                             <% } %>
                                         <% } %>
                                     <% } %>
-                                    
                                 </td>
                                 <td>
-                                    <a href="/admin/destroy-user/<%= user.id %>"><button class="btn">Delete</button></a>
+                                    <a href="/admin/destroy-user/<%= user.id %>">
+                                        <button class="action-btn delete-user-btn">Delete</button>
+                                    </a>
                                 </td>
                             </tr>
                         <% } %>
@@ -54,36 +53,5 @@
                 </table>
             </div>
         </section>
-        
     </main>
 </body>
-        
-        
-
-
-        <!-- <ul class="user-container">
-            <% for (let user of all_users) { %>
-                    <li>
-                        <p><%= user.name %></p>
-                        <% if (user.passcode !== 'YOUAREADMIN') { %>
-                            <p>Admin  : False</p>
-                            <form action="/admin/user-to-admin/<%= user.id %>" method="POST">
-                                <button class="btn">MAKE ADMINt</button>
-                            </form>
-                        <%}else{%>
-                            <p>Admin  : True</p>
-                            <% for(admin of all_admin){%>
-                                <% if(admin.email === user.email){%>
-                                <a href="/admin/destroy-admin/<%= admin.id %>"><button class="btn">Remove Admin</button></a>
-                                <%}%>
-                            <%}%>
-                         <%}%>   
-                        <form action="/user/profile/<%= user.id %>" method="GET">
-                            <button class="btn">Visit</button>
-                        </form>
-                        
-                        <a href="/admin/destroy-user/<%= user.id %>"><button class="btn">Delete</button></a>
-                    </li>
-            <% } %>
-        </ul> -->
-  

@@ -1,28 +1,34 @@
-    <link rel="stylesheet" href="/css/sign_up.css">
+<link rel="stylesheet" href="/css/sign_up.css" />
 
-    <main>
-        <section>
-        <div id="sign-up-form">
-            <h3>Sign-Up</h3>
-            <form action="/user/create-user" method="POST" id="sign-up">
-                <div class="name-form">
-                    <label for="name">Name</label>
-                    <input type="text" name="name" placeholder="Username" required>
-                </div>
-                <div class="email-form">
-                    <label for="email">Email</label>
-                    <input type="email" name="email" placeholder="Email" required>
-                </div>
-                <div class="password-form">
-                    <label for="password">Password</label>
-                    <input type="password" name="password" placeholder="Password" required>
-                </div>
-                <div class="confirm-password-form">
-                    <label for="confirm_password">Confirm-Password</label>
-                    <input type="password" name="confirm_password" placeholder="Confirm-Password" required>
-                </div>
-                <button class="btn">Sign Up</button>
-            </form>
-        </div>
-        </section>
-    </main>
+<main>
+  <section id="sign-up-form">
+    <h3>Sign-Up</h3>
+    <form action="/user/create-user" method="POST" id="sign-up">
+      <div class="name-form">
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Username" required />
+      </div>
+      <div class="email-form">
+        <label for="email">Email</label>
+        <input type="email" name="email" placeholder="Email" required />
+      </div>
+      <div class="password-form">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required />
+      </div>
+      <div class="confirm-password-form">
+        <label for="confirm_password">Confirm-Password</label>
+        <input
+          type="password"
+          name="confirm_password"
+          placeholder="Confirm-Password"
+          required />
+      </div>
+      <button class="btn">Sign Up</button>
+    </form>
+  </section>
+</main>
